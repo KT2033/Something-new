@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>তথ্যসাগর</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #fff9f3; color: #333; padding: 1rem; }
+    header { text-align: center; padding: 1rem 0; background: #f57c00; color: white; position: relative; }
+    .menu-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #fff;
+      border: none;
+      font-size: 1.4rem;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+    nav.show {
+      display: flex;
+    }
+    button.filter {
+      padding: 10px 15px;
+      border: none;
+      background: #444;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button.filter:hover {
+      background: #f57c00;
+    }
+    .post-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .post {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .post img {
+      width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+    .post h3 { margin-top: 10px; font-size: 1.2rem; }
+    .post p { margin: 0.5rem 0; }
+    .read-more {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #f57c00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    @media (max-width: 500px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>তথ্যসাগর</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <nav id="categoryMenu">
+    <button class="filter" onclick="filterPosts('all')">সব</button>
+    <button class="filter" onclick="filterPosts('history')">ইতিহাস</button>
+    <button class="filter" onclick="filterPosts('selfdev')">সেলফ ডেভেলপমেন্ট</button>
+    <button class="filter" onclick="filterPosts('islam')">ইসলাম</button>
+  </nav>
+
+  <section class="post-container" id="posts">
+    <div class="post" data-category="history" data-views="50" data-date="2024-12-01">
+      <img src="image2/post1.jpg" alt="">
+      <h3>মুঘল সাম্রাজ্যের উত্থান</h3>
+      <p>ভারতের ইতিহাসে একটি স্বর্ণালী অধ্যায়।</p>
+      <a class="read-more" href="posts/history1.html">আরও পড়ুন</a>
+    </div>
+    <div class="post" data-category="selfdev" data-views="120" data-date="2025-01-10">
+      <img src="image2/post2.jpg" alt="">
+      <h3>প্রতিদিন কীভাবে সময় নষ্ট হচ্ছে?</h3>
+      <p>নিজেকে উন্নত করার জন্য সময় ব্যবস্থাপনা খুব জরুরি।</p>
+      <a class="read-more" href="posts/selfdev1.html">আরও পড়ুন</a>
+    </div>
+    <div class="post" data-category="islam" data-views="90" data-date="2025-02-15">
+      <img src="image2/post3.jpg" alt="">
+      <h3>রাসূল (সা.) এর সর্বশেষ খুতবা</h3>
+      <p>একটি মানবিক বিপ্লবের ঘোষণা।</p>
+      <a class="read-more" href="posts/islam1.html">আরও পড়ুন</a>
+    </div>
+    <div class="post" data-category="islam" data-views="85" data-date="2025-03-05">
+      <img src="image2/post4.jpg" alt="">
+      <h3>জাকাত: সমাজিক ন্যায়বিচারের স্তম্ভ</h3>
+      <p>ইসলামে ধনীদের জন্য গরিবদের অধিকার প্রতিষ্ঠার মাধ্যম জাকাত।</p>
+      <a class="read-more" href="posts/islam2.html">আরও পড়ুন</a>
+    </div>
+    <div class="post" data-category="selfdev" data-views="110" data-date="2025-02-25">
+      <img src="image2/post5.jpg" alt="">
+      <h3>নেতৃত্বের গুণাবলি অর্জনের ৫ উপায়</h3>
+      <p>সফল নেতৃত্বের জন্য আবশ্যক কিছু মানসিক গুণাবলি ও আচরণ।</p>
+      <a class="read-more" href="posts/selfdev2.html">আরও পড়ুন</a>
+    </div>
+    <div class="post" data-category="history" data-views="70" data-date="2025-01-20">
+      <img src="image2/post6.jpg" alt="">
+      <h3>স্পেনের আন্দালুস: এক বিস্মৃত স্বর্ণযুগ</h3>
+      <p>ইসলামী সভ্যতার এক উজ্জ্বল যুগ, যা ইউরোপকে আলোকিত করেছিল।</p>
+      <a class="read-more" href="posts/history2.html">আরও পড়ুন</a>
+    </div>
+  </section>
+
+  <script>
+    const posts = Array.from(document.querySelectorAll('.post'));
+
+    function toggleMenu() {
+      const menu = document.getElementById('categoryMenu');
+      menu.classList.toggle('show');
+    }
+
+    function filterPosts(category) {
+      posts.forEach(post => {
+        post.style.display = (category === 'all' || post.dataset.category === category) ? 'block' : 'none';
+      });
+    }
+
+    function sortAndDisplay() {
+      const container = document.getElementById('posts');
+      const sorted = posts.sort((a, b) => {
+        const viewsA = parseInt(a.dataset.views);
+        const viewsB = parseInt(b.dataset.views);
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        if (viewsB !== viewsA) return viewsB - viewsA;
+        return dateB - dateA;
+      });
+      container.innerHTML = '';
+      sorted.forEach(post => container.appendChild(post));
+    }
+
+    window.onload = () => {
+      posts.forEach(p => p.dataset.views = parseInt(p.dataset.views) + Math.floor(Math.random() * 5));
+      sortAndDisplay();
+    }
+  </script>
+</body>
+</html>
