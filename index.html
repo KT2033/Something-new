@@ -2,9 +2,14 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <title>মোদের বিদ্যালয়</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="একটি গবেষণা এবং তথ্যভিত্তিক ওয়েবসাইট, যেখানে আপনি ইসলাম, ইতিহাস, আত্মউন্নয়ন, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং ইত্যাদি বিষয়ে গুরুত্বপূর্ণ পোস্ট পড়তে পারবেন।">
+  <meta name="keywords" content="ইসলাম, ইতিহাস, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং, আত্মউন্নয়ন, গবেষণা, তথ্য, অনলাইন আয়">
+  <meta name="author" content="Khalil">
+  <title>তথ্য ভান্ডার - ইসলাম, ইতিহাস ও আত্মউন্নয়ন পোস্ট</title>
+  <link rel="stylesheet" href="style.css">
 
-  <!-- AD CODE 1 -->
+  <!-- ✅ AD CODE 1 -->
   <script type="text/javascript">
     atOptions = {
       'key' : '723789414f23ab8c5829d9c0d3e395c6',
@@ -16,46 +21,169 @@
   </script>
   <script type="text/javascript" src="//www.highperformanceformat.com/723789414f23ab8c5829d9c0d3e395c6/invoke.js"></script>
 
-  <!-- AD CODE 2 -->
-  <script type='text/javascript' src='//pl27082350.profitableratecpm.com/ff/46/86/ff46863f9df29547d6d0e227e66fb2b0.js'></script>
-
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
+      background-color: #f9f9f9;
+      color: #222;
       font-family: sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
       text-align: center;
     }
-    a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-size: 28px;
-      margin-bottom: 20px;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      flex-wrap: wrap;
     }
-    .ad-link {
-      margin-top: 30px;
+    nav .dropdown {
+      position: relative;
+    }
+    .dropdown button {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #333;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      min-width: 160px;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .post {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px auto;
+      background-color: #fff;
+      max-width: 800px;
+      display: none;
+    }
+    .post img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #ff6600;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>তথ্য ভান্ডার</h1>
+    <p></p>
+  </header>
 
-  <!-- PDF Link -->
-  <h1>
-    <a href="https://drive.google.com/uc?export=view&id=1O-4ju2n__OrOftFsnWvrXY7UVWYRR1Oy" target="_blank">
-      মোদের বিদ্যালয় PDF
-    </a>
-  </h1>
+  <nav>
+    <div class="dropdown">
+      <button>ক্যাটাগরি</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="filterPosts('islamic')">ইসলাম</a>
+        <a href="#" onclick="filterPosts('history')">ইতিহাস</a>
+        <a href="#" onclick="filterPosts('freelance')">ফ্রিল্যান্সিং</a>
+        <a href="#" onclick="filterPosts('marketing')">ডিজিটাল মার্কেটিং</a>
+        <a href="#" onclick="filterPosts('development')">আত্মউন্নয়ন</a>
+        <a href="#" onclick="filterPosts('all')">সব পোস্ট</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- AD CODE 3 as a Clickable Link (Banner or Button style) -->
-  <div class="ad-link">
-    <a href="https://www.profitableratecpm.com/zperyef86?key=571ab1235d8cc40fe95960cbdee6521d" target="_blank">
+  <!-- পোস্টগুলো -->
+  <section class="post" id="islamic">
+    <h2>ইসলামিক পোস্ট</h2>
+    <img src="posters/islam1.jpg" alt="ইসলামিক পোস্ট">
+    <p>ইসলামে সময় ব্যবস্থাপনার গুরুত্ব ও উপকারিতা।</p>
+    <a href="posts/islam1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="history">
+    <h2>ইতিহাস</h2>
+    <img src="posters/history1.jpg" alt="ইতিহাস">
+    <p>মুসলিমদের স্বর্ণযুগ: বিজ্ঞান ও জ্ঞানের যুগ।</p>
+    <a href="posts/history1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="freelance">
+    <h2>ফ্রিল্যান্সিং</h2>
+    <img src="posters/freelance1.jpg" alt="ফ্রিল্যান্সিং">
+    <p>ফ্রিল্যান্সিংয়ের ১০টি স্কিল যা ২০২৫ এ কাজে আসবে।</p>
+    <a href="posts/freelance1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="marketing">
+    <h2>ডিজিটাল মার্কেটিং</h2>
+    <img src="posters/marketing1.jpg" alt="ডিজিটাল মার্কেটিং">
+    <p>ডিজিটাল মার্কেটিং শুরু করবেন যেভাবে।</p>
+    <a href="posts/marketing1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="development">
+    <h2>আত্মউন্নয়ন</h2>
+    <img src="posters/selfdev1.jpg" alt="আত্মউন্নয়ন">
+    <p>দৈনন্দিন জীবনে আত্মউন্নয়ন করার সহজ উপায়।</p>
+    <a href="posts/selfdev1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <!-- ✅ AD CODE 3: ক্লিকযোগ্য লিংক -->
+  <div style="text-align:center; margin: 30px 0;">
+    <a href="https://www.profitableratecpm.com/zperyef86?key=571ab1235d8cc40fe95960cbdee6521d" target="_blank" style="font-size:18px; color: #ff0000;">
       📢 স্পেশাল অফার দেখুন
     </a>
   </div>
 
+  <footer>
+    <p>যোগাযোগ: <a href="https://wa.me/8801712345678" style="color:#0f0">WhatsApp</a></p>
+  </footer>
+
+  <!-- ✅ AD CODE 2 -->
+  <script type='text/javascript' src='//pl27082350.profitableratecpm.com/ff/46/86/ff46863f9df29547d6d0e227e66fb2b0.js'></script>
+
+  <script>
+    function filterPosts(category) {
+      const posts = document.querySelectorAll('.post');
+      posts.forEach(post => {
+        if (category === 'all') {
+          post.style.display = 'block';
+        } else {
+          post.style.display = post.id === category ? 'block' : 'none';
+        }
+      });
+    }
+
+    // Default: show all on load
+    window.onload = () => filterPosts('all');
+  </script>
 </body>
 </html>
