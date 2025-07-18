@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>অন্বেষণ - ইসলাম, ইতিহাস ও আত্মউন্নয়ন পোস্ট</title>
   <style>
     body {
@@ -12,6 +12,7 @@
       margin: 0;
       position: relative;
     }
+
     header {
       background-color: #333;
       color: #fff;
@@ -19,8 +20,18 @@
       text-align: center;
       position: relative;
     }
-    header h1 { margin: 0; font-size: 3rem; }
-    @media (max-width: 768px) { header h1 { font-size: 2rem; } }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+
     header marquee {
       display: block;
       color: yellow;
@@ -28,6 +39,7 @@
       padding: 6px 0;
       margin-top: .5rem;
     }
+
     .menu-button {
       position: absolute;
       top: 15px;
@@ -35,16 +47,18 @@
       cursor: pointer;
       z-index: 1001;
     }
+
     .menu-button div {
-      width: 30px; height: 4px;
+      width: 30px;
+      height: 4px;
       background-color: #fff;
       margin: 6px 0;
     }
 
-    /* Sidebar menu */
     .sidebar {
       position: fixed;
-      top: 0; left: -250px;
+      top: 0;
+      left: -250px;
       width: 250px;
       height: 100%;
       background-color: #444;
@@ -53,15 +67,18 @@
       transition: left 0.3s ease;
       z-index: 1000;
     }
+
     .sidebar a {
       display: block;
       padding: 12px 20px;
       color: #fff;
       text-decoration: none;
     }
+
     .sidebar a:hover {
       background-color: #555;
     }
+
     .sidebar.active {
       left: 0;
     }
@@ -74,7 +91,11 @@
       padding: 10px;
       flex-wrap: wrap;
     }
-    .dropdown { position: relative; }
+
+    .dropdown {
+      position: relative;
+    }
+
     .dropdown button {
       background: linear-gradient(to right, #00c6ff, #0072ff);
       color: white;
@@ -85,19 +106,22 @@
       cursor: pointer;
       font-size: 16px;
     }
+
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #fff;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       z-index: 1;
       min-width: 160px;
     }
+
     .dropdown-content a {
       color: #333;
       padding: 8px 12px;
       display: block;
     }
+
     .dropdown:hover .dropdown-content {
       display: block;
     }
@@ -111,10 +135,12 @@
       max-width: 800px;
       display: none;
     }
+
     .post img {
       max-width: 100%;
       border-radius: 10px;
     }
+
     .read-more {
       display: inline-block;
       margin-top: 10px;
@@ -122,6 +148,7 @@
       background-color: #ff6600;
       color: #fff;
       border-radius: 30px;
+      text-decoration: none;
     }
 
     footer {
@@ -134,11 +161,12 @@
   </style>
 </head>
 <body>
-
+  <!-- Menu Button -->
   <div class="menu-button" onclick="toggleMenu()">
     <div></div><div></div><div></div>
   </div>
 
+  <!-- Sidebar Menu -->
   <div class="sidebar" id="sidebarMenu">
     <a href="index.html">হোম</a>
     <a href="#" onclick="filterPosts('islamic'); toggleMenu()">ইসলাম</a>
@@ -149,6 +177,7 @@
     <a href="#" onclick="filterPosts('all'); toggleMenu()">সব পোস্ট</a>
   </div>
 
+  <!-- Header -->
   <header>
     <h1>অন্বেষণ</h1>
     <marquee behavior="scroll" direction="left">
@@ -156,6 +185,7 @@
     </marquee>
   </header>
 
+  <!-- Dropdown Category -->
   <nav>
     <div class="dropdown">
       <button>ক্যাটাগরি</button>
@@ -170,23 +200,63 @@
     </div>
   </nav>
 
-  <!-- Post Sections -->
-  <!-- ... same as before ... -->
+  <!-- Post Boxes -->
+  <section class="post" id="islamic">
+    <h2>ইসলামিক পোস্ট</h2>
+    <img src="posters/islam1.jpg" alt="ইসলামিক পোস্ট">
+    <p>ইসলামে সময় ব্যবস্থাপনার গুরুত্ব ও উপকারিতা।</p>
+    <a href="posts/islam1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
 
+  <section class="post" id="history">
+    <h2>ইতিহাস</h2>
+    <img src="posters/history1.jpg" alt="ইতিহাস">
+    <p>মুসলিমদের স্বর্ণযুগ: বিজ্ঞান ও জ্ঞানের যুগ।</p>
+    <a href="posts/history1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="freelance">
+    <h2>ফ্রিল্যান্সিং</h2>
+    <img src="posters/freelance1.jpg" alt="ফ্রিল্যান্সিং">
+    <p>ফ্রিল্যান্সিংয়ের ১০টি স্কিল যা ২০২৫ এ কাজে আসবে।</p>
+    <a href="posts/freelance1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="marketing">
+    <h2>ডিজিটাল মার্কেটিং</h2>
+    <img src="posters/marketing1.jpg" alt="ডিজিটাল মার্কেটিং">
+    <p>ডিজিটাল মার্কেটিং শুরু করবেন যেভাবে।</p>
+    <a href="posts/marketing1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <section class="post" id="development">
+    <h2>আত্মউন্নয়ন</h2>
+    <img src="posters/selfdev1.jpg" alt="আত্মউন্নয়ন">
+    <p>দৈনন্দিন জীবনে আত্মউন্নয়ন করার সহজ উপায়।</p>
+    <a href="posts/selfdev1.html" class="read-more">বিস্তারিত পড়ুন</a>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>যোগাযোগ: <a href="https://wa.me/8801712345678" style="color:#0f0">WhatsApp</a></p>
   </footer>
 
+  <!-- Scripts -->
   <script>
     function toggleMenu() {
       document.getElementById('sidebarMenu').classList.toggle('active');
     }
+
     function filterPosts(category) {
-      document.querySelectorAll('.post').forEach(post => {
+      const posts = document.querySelectorAll('.post');
+      posts.forEach(post => {
         post.style.display = (category === 'all' || post.id === category) ? 'block' : 'none';
       });
     }
-    window.onload = () => filterPosts('all');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      filterPosts('all');
+    });
   </script>
 </body>
 </html>
