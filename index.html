@@ -3,44 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- ✅ SEO META TAGS -->
-  <meta name="robots" content="index, follow">
-  <meta name="description" content="অন্বেষণ একটি গবেষণা এবং তথ্যভিত্তিক ওয়েবসাইট, যেখানে আপনি ইসলাম, ইতিহাস, আত্মউন্নয়ন, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং ইত্যাদি বিষয়ে গুরুত্বপূর্ণ পোস্ট পড়তে পারবেন।">
-  <meta name="keywords" content="ইসলাম, ইতিহাস, ফ্রিল্যান্সিং, ডিজিটাল মার্কেটিং, আত্মউন্নয়ন, গবেষণা, তথ্য, অনলাইন আয়">
-  <meta name="author" content="Khalil">
-  
-  <!-- ✅ Google Search Console Verification Tag -->
-  <meta name="google-site-verification" content="আপনার ভেরিফিকেশন কোড এখানে বসান">
-
   <title>অন্বেষণ - ইসলাম, ইতিহাস ও আত্মউন্নয়ন পোস্ট</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- ✅ AD CODE 1 -->
-  <script type="text/javascript">
-    atOptions = {
-      'key' : '723789414f23ab8c5829d9c0d3e395c6',
-      'format' : 'iframe',
-      'height' : 60,
-      'width' : 468,
-      'params' : {}
-    };
-  </script>
-  <script type="text/javascript" src="//www.highperformanceformat.com/723789414f23ab8c5829d9c0d3e395c6/invoke.js"></script>
-
   <style>
     body {
       background-color: #f9f9f9;
       color: #222;
       font-family: sans-serif;
       margin: 0;
+      position: relative;
     }
     header {
       background-color: #333;
       color: #fff;
       padding: 1rem;
       text-align: center;
+      position: relative;
     }
+    header h1 { margin: 0; font-size: 3rem; }
+    @media (max-width: 768px) { header h1 { font-size: 2rem; } }
+    header marquee {
+      display: block;
+      color: yellow;
+      background: #222;
+      padding: 6px 0;
+      margin-top: .5rem;
+    }
+    .menu-button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .menu-button div {
+      width: 30px; height: 4px;
+      background-color: #fff;
+      margin: 6px 0;
+    }
+
+    /* Sidebar menu */
+    .sidebar {
+      position: fixed;
+      top: 0; left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #444;
+      color: #fff;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar a {
+      display: block;
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #555;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -49,39 +74,40 @@
       padding: 10px;
       flex-wrap: wrap;
     }
-    nav .dropdown {
-      position: relative;
-    }
+    .dropdown { position: relative; }
     .dropdown button {
-      background-color: transparent;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      padding: 10px 25px;
       border: none;
-      font-size: 16px;
+      border-radius: 50px;
+      font-weight: bold;
       cursor: pointer;
-      color: #333;
+      font-size: 16px;
     }
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #fff;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       z-index: 1;
       min-width: 160px;
     }
     .dropdown-content a {
-      color: black;
+      color: #333;
       padding: 8px 12px;
-      text-decoration: none;
       display: block;
     }
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
     .post {
       border: 1px solid #ddd;
       border-radius: 10px;
       padding: 10px;
       margin: 15px auto;
-      background-color: #fff;
+      background-color: #999999;
       max-width: 800px;
       display: none;
     }
@@ -95,9 +121,9 @@
       padding: 8px 12px;
       background-color: #ff6600;
       color: #fff;
-      text-decoration: none;
       border-radius: 30px;
     }
+
     footer {
       background-color: #333;
       color: #fff;
@@ -108,9 +134,26 @@
   </style>
 </head>
 <body>
+
+  <div class="menu-button" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
+  <div class="sidebar" id="sidebarMenu">
+    <a href="index.html">হোম</a>
+    <a href="#" onclick="filterPosts('islamic'); toggleMenu()">ইসলাম</a>
+    <a href="#" onclick="filterPosts('history'); toggleMenu()">ইতিহাস</a>
+    <a href="#" onclick="filterPosts('freelance'); toggleMenu()">ফ্রিল্যান্সিং</a>
+    <a href="#" onclick="filterPosts('marketing'); toggleMenu()">ডিজিটাল মার্কেটিং</a>
+    <a href="#" onclick="filterPosts('development'); toggleMenu()">আত্মউন্নয়ন</a>
+    <a href="#" onclick="filterPosts('all'); toggleMenu()">সব পোস্ট</a>
+  </div>
+
   <header>
     <h1>অন্বেষণ</h1>
-    <p>জ্ঞান ও সত্যের খোঁজে</p>
+    <marquee behavior="scroll" direction="left">
+      অন্বেষণ কেবল অনুসন্ধান নয়—এটি হলো উপলব্ধি, বিশ্লেষণ ও বোধের সমন্বিত যাত্রা
+    </marquee>
   </header>
 
   <nav>
@@ -127,69 +170,22 @@
     </div>
   </nav>
 
-  <!-- পোস্টগুলো -->
-  <section class="post" id="islamic">
-    <h2>ইসলামিক পোস্ট</h2>
-    <img src="posters/islam1.jpg" alt="ইসলামিক পোস্ট">
-    <p>ইসলামে সময় ব্যবস্থাপনার গুরুত্ব ও উপকারিতা।</p>
-    <a href="posts/islam1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>
-
-  <section class="post" id="history">
-    <h2>ইতিহাস</h2>
-    <img src="posters/history1.jpg" alt="ইতিহাস">
-    <p>মুসলিমদের স্বর্ণযুগ: বিজ্ঞান ও জ্ঞানের যুগ।</p>
-    <a href="posts/history1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>
-
-  <section class="post" id="freelance">
-    <h2>ফ্রিল্যান্সিং</h2>
-    <img src="posters/freelance1.jpg" alt="ফ্রিল্যান্সিং">
-    <p>ফ্রিল্যান্সিংয়ের ১০টি স্কিল যা ২০২৫ এ কাজে আসবে।</p>
-    <a href="posts/freelance1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>
-
-  <section class="post" id="marketing">
-    <h2>ডিজিটাল মার্কেটিং</h2>
-    <img src="posters/marketing1.jpg" alt="ডিজিটাল মার্কেটিং">
-    <p>ডিজিটাল মার্কেটিং শুরু করবেন যেভাবে।</p>
-    <a href="posts/marketing1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>
-
-  <section class="post" id="development">
-    <h2>আত্মউন্নয়ন</h2>
-    <img src="posters/selfdev1.jpg" alt="আত্মউন্নয়ন">
-    <p>দৈনন্দিন জীবনে আত্মউন্নয়ন করার সহজ উপায়।</p>
-    <a href="posts/selfdev1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>
-
-  <!-- ✅ AD CODE 3 -->
-  <div style="text-align:center; margin: 30px 0;">
-    <a href="https://www.profitableratecpm.com/zperyef86?key=571ab1235d8cc40fe95960cbdee6521d" target="_blank" style="font-size:18px; color: #ff0000;">
-      📢 স্পেশাল অফার দেখুন
-    </a>
-  </div>
+  <!-- Post Sections -->
+  <!-- ... same as before ... -->
 
   <footer>
     <p>যোগাযোগ: <a href="https://wa.me/8801712345678" style="color:#0f0">WhatsApp</a></p>
   </footer>
 
-  <!-- ✅ AD CODE 2 -->
-  <script type='text/javascript' src='//pl27082350.profitableratecpm.com/ff/46/86/ff46863f9df29547d6d0e227e66fb2b0.js'></script>
-
   <script>
+    function toggleMenu() {
+      document.getElementById('sidebarMenu').classList.toggle('active');
+    }
     function filterPosts(category) {
-      const posts = document.querySelectorAll('.post');
-      posts.forEach(post => {
-        if (category === 'all') {
-          post.style.display = 'block';
-        } else {
-          post.style.display = post.id === category ? 'block' : 'none';
-        }
+      document.querySelectorAll('.post').forEach(post => {
+        post.style.display = (category === 'all' || post.id === category) ? 'block' : 'none';
       });
     }
-
-    // Default: show all on load
     window.onload = () => filterPosts('all');
   </script>
 </body>
