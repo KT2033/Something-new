@@ -1,0 +1,124 @@
+ <!DOCTYPE html><html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>অন্বেষণ | ইবুক সংগ্রহ</title>
+  <meta name="description" content="অন্বেষণ - ফ্রি ও প্রিমিয়াম ইবুক সংগ্রহশালা। ইসলাম, ইতিহাস, আত্মউন্নয়নসহ নানা বিষয়ে বই সংগ্রহ করুন।">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfaf6;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #1e293b;
+    }
+    .category-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .category-bar button {
+      margin: 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background-color: #f59e0b;
+      color: white;
+      cursor: pointer;
+    }
+    .ebook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .ebook-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .ebook-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .ebook-meta {
+      font-size: 14px;
+      color: #475569;
+    }
+    .ebook-buttons {
+      margin-top: 10px;
+    }
+    .ebook-buttons a {
+      margin-right: 10px;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .download-btn {
+      background-color: #10b981;
+      color: white;
+    }
+    .buy-btn {
+      background-color: #ef4444;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 অন্বেষণ ইবুক সংগ্রহ</h1>
+  <div class="category-bar">
+    <button onclick="filterBooks('all')">সকল</button>
+    <button onclick="filterBooks('free')">ফ্রি</button>
+    <button onclick="filterBooks('paid')">পেইড</button>
+  </div>  <div class="ebook-grid" id="ebookContainer">
+    <!-- Book 1 -->
+    <div class="ebook-card" data-type="free">
+      <div class="ebook-title">ইসলামে আত্মশুদ্ধি</div>
+      <div class="ebook-meta">বিষয়: ইসলাম | লেখক: মাওলানা শামসুল হক</div>
+      <div class="ebook-buttons">
+        <a href="#" class="download-btn">ডাউনলোড</a>
+      </div>
+    </div><!-- Book 2 -->
+<div class="ebook-card" data-type="paid">
+  <div class="ebook-title">বাংলার ইতিহাস (১৯০৫-১৯৪৭)</div>
+  <div class="ebook-meta">বিষয়: ইতিহাস | লেখক: আবুল কালাম আজাদ</div>
+  <div class="ebook-buttons">
+    <a href="#" class="buy-btn">৳১৫০ টাকায় কিনুন</a>
+  </div>
+</div>
+
+<!-- Book 3 -->
+<div class="ebook-card" data-type="free">
+  <div class="ebook-title">ফ্রিল্যান্সিং গাইড ২০২৫</div>
+  <div class="ebook-meta">বিষয়: ক্যারিয়ার | লেখক: আরিফুল ইসলাম</div>
+  <div class="ebook-buttons">
+    <a href="#" class="download-btn">ডাউনলোড</a>
+  </div>
+</div>
+
+<!-- Book 4 -->
+<div class="ebook-card" data-type="paid">
+  <div class="ebook-title">আত্মউন্নয়নের ৭ ধাপ</div>
+  <div class="ebook-meta">বিষয়: আত্মউন্নয়ন | লেখক: মাহবুব হোসেন</div>
+  <div class="ebook-buttons">
+    <a href="#" class="buy-btn">৳২০০ টাকায় কিনুন</a>
+  </div>
+</div>
+
+  </div>  <script>
+    function filterBooks(type) {
+      const books = document.querySelectorAll('.ebook-card');
+      books.forEach(book => {
+        if (type === 'all' || book.dataset.type === type) {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script></body>
+</html>
