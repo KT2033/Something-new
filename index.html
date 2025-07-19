@@ -1,194 +1,207 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>অন্বেষণ - ইসলাম, ইতিহাস ও আত্মউন্নয়ন পোস্ট</title>
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background-color: #fdfdfd;
+      background-color: #fefefe;
       color: #222;
       font-family: sans-serif;
       margin: 0;
       position: relative;
-    }header {
-  background-color: #2c3e50;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  position: relative;
-}
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 3rem;
-}
+    header {
+      background-color: #0a4275;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-}
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
 
-header marquee {
-  display: block;
-  color: yellow;
-  background: #1a252f;
-  padding: 6px 0;
-  margin-top: .5rem;
-}
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
 
-.menu-button {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  cursor: pointer;
-  z-index: 1001;
-}
+    header marquee {
+      display: block;
+      color: yellow;
+      background: #06294a;
+      padding: 6px 0;
+      margin-top: .5rem;
+    }
 
-.menu-button div {
-  width: 30px;
-  height: 4px;
-  background-color: #fff;
-  margin: 6px 0;
-}
+    .menu-button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      cursor: pointer;
+      z-index: 1001;
+    }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #34495e;
-  color: #fff;
-  padding-top: 60px;
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
+    .menu-button div {
+      width: 30px;
+      height: 4px;
+      background-color: #fff;
+      margin: 6px 0;
+    }
 
-.sidebar.active {
-  left: 0;
-}
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background-color: #1e3d59;
+      color: #fff;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
 
-.sidebar a {
-  display: block;
-  padding: 12px 20px;
-  color: #fff;
-  text-decoration: none;
-}
+    .sidebar.active {
+      left: 0;
+    }
 
-.sidebar a:hover {
-  background-color: #3d566e;
-}
+    .close-sidebar {
+      position: absolute;
+      top: 0;
+      right: -10px;
+      background-color: #244f75; /* Updated from red */
+      color: white;
+      width: 30px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
 
-.close-bar {
-  position: absolute;
-  top: 0;
-  left: 250px;
-  height: 100%;
-  width: 30px;
-  background-color: #34495e;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 20px;
-}
+    .sidebar a {
+      display: block;
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+    }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background-color: #ecf0f1;
-  padding: 10px;
-  flex-wrap: wrap;
-}
+    .sidebar a:hover {
+      background-color: #375a7f;
+    }
 
-.dropdown {
-  position: relative;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #e0e0e0;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
 
-.dropdown button {
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 16px;
-}
+    .dropdown {
+      position: relative;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  min-width: 160px;
-}
+    .dropdown button {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-.dropdown-content a {
-  color: #333;
-  padding: 8px 12px;
-  display: block;
-  text-decoration: none;
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      min-width: 160px;
+    }
 
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
+    .dropdown-content a {
+      color: #333;
+      padding: 8px 12px;
+      display: block;
+      text-decoration: none;
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
 
-.post {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 15px auto;
-  background-color: #eaeaea;
-  max-width: 800px;
-  display: none;
-}
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-.post img {
-  max-width: 100%;
-  border-radius: 10px;
-}
+    .post {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 15px auto;
+      background-color: #f6f6f6;
+      max-width: 800px;
+      display: none;
+    }
 
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background-color: #e67e22;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-}
+    .post img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
 
-footer {
-  background-color: #2c3e50;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-}
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #ff6600;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+    }
 
-footer a {
-  margin: 0 10px;
-  text-decoration: none;
-}
+    footer {
+      background-color: #0a4275;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
 
+    footer a {
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer img {
+      vertical-align: middle;
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
+
   <!-- Menu Button -->
   <div class="menu-button" onclick="toggleMenu()">
     <div></div><div></div><div></div>
-  </div>  <!-- Sidebar Menu -->  <div class="sidebar" id="sidebarMenu">
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar" id="sidebarMenu">
+    <div class="close-sidebar" onclick="toggleMenu()">&lt;</div>
     <a href="index.html">হোম</a>
     <a href="#" onclick="filterPosts('islamic'); toggleMenu()">ইসলাম</a>
     <a href="#" onclick="filterPosts('history'); toggleMenu()">ইতিহাস</a>
@@ -198,12 +211,17 @@ footer a {
     <a href="#" onclick="filterPosts('all'); toggleMenu()">সব পোস্ট</a>
     <a href="Ebookstore.html" onclick="toggleMenu()">📚 Ebook Store</a>
   </div>
-  <div class="close-bar" onclick="toggleMenu()">&lt;</div>  <!-- Header -->  <header>
+
+  <!-- Header -->
+  <header>
     <h1>অন্বেষণ</h1>
     <marquee behavior="scroll" direction="left">
       অন্বেষণ কেবল অনুসন্ধান নয়—এটি হলো উপলব্ধি, বিশ্লেষণ ও বোধের সমন্বিত যাত্রা
     </marquee>
-  </header>  <!-- Dropdown Category -->  <nav>
+  </header>
+
+  <!-- Dropdown Category -->
+  <nav>
     <div class="dropdown">
       <button>ক্যাটাগরি</button>
       <div class="dropdown-content">
@@ -216,45 +234,61 @@ footer a {
         <a href="Ebookstore.html">📚 Ebook Store</a>
       </div>
     </div>
-  </nav>  <!-- Post Boxes -->  <section class="post" id="islamic">
+  </nav>
+
+  <!-- Post Boxes -->
+  <section class="post" id="islamic">
     <h2>ইসলামিক পোস্ট</h2>
     <img src="posters/islam1.jpg" alt="ইসলামিক পোস্ট">
     <p>ইসলামে সময় ব্যবস্থাপনার গুরুত্ব ও উপকারিতা।</p>
     <a href="posts/islam1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>  <section class="post" id="history">
+  </section>
+
+  <section class="post" id="history">
     <h2>ইতিহাস</h2>
     <img src="posters/history1.jpg" alt="ইতিহাস">
     <p>মুসলিমদের স্বর্ণযুগ: বিজ্ঞান ও জ্ঞানের যুগ।</p>
     <a href="posts/history1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>  <section class="post" id="freelance">
+  </section>
+
+  <section class="post" id="freelance">
     <h2>ফ্রিল্যান্সিং</h2>
     <img src="posters/freelance1.jpg" alt="ফ্রিল্যান্সিং">
     <p>ফ্রিল্যান্সিংয়ের ১০টি স্কিল যা ২০২৫ এ কাজে আসবে।</p>
     <a href="posts/freelance1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>  <section class="post" id="marketing">
+  </section>
+
+  <section class="post" id="marketing">
     <h2>ডিজিটাল মার্কেটিং</h2>
     <img src="posters/marketing1.jpg" alt="ডিজিটাল মার্কেটিং">
     <p>ডিজিটাল মার্কেটিং শুরু করবেন যেভাবে।</p>
     <a href="posts/marketing1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>  <section class="post" id="development">
+  </section>
+
+  <section class="post" id="development">
     <h2>আত্মউন্নয়ন</h2>
     <img src="posters/selfdev1.jpg" alt="আত্মউন্নয়ন">
     <p>দৈনন্দিন জীবনে আত্মউন্নয়ন করার সহজ উপায়।</p>
     <a href="posts/selfdev1.html" class="read-more">বিস্তারিত পড়ুন</a>
-  </section>  <!-- Footer -->  <footer>
-    <p>যোগাযোগ:</p>
-    <p>
-      <a href="https://wa.me/8801852977329" target="_blank" title="WhatsApp">
-        <i class="fab fa-whatsapp" style="color: #25d366; font-size: 24px;"></i>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>যোগাযোগ:
+      <a href="https://wa.me/8801852977329">
+        <img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WhatsApp"/>
       </a>
-      <a href="mailto:oonneshon@gmail.com" title="Gmail">
-        <i class="fas fa-envelope" style="color: #ea4335; font-size: 24px;"></i>
+      <a href="mailto:oonneshon@gmail.com">
+        <img src="https://img.icons8.com/color/24/000000/gmail--v1.png" alt="Gmail"/>
       </a>
-      <a href="https://t.me/yourtelegramusername" target="_blank" title="Telegram">
-        <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px;"></i>
+      <a href="https://t.me/yourtelegramusername">
+        <img src="https://img.icons8.com/color/24/000000/telegram-app--v1.png" alt="Telegram"/>
       </a>
     </p>
-  </footer>  <!-- Scripts -->  <script>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
     function toggleMenu() {
       document.getElementById('sidebarMenu').classList.toggle('active');
     }
@@ -269,5 +303,6 @@ footer a {
     document.addEventListener('DOMContentLoaded', () => {
       filterPosts('all');
     });
-  </script></body>
+  </script>
+</body>
 </html>
