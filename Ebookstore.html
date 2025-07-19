@@ -1,124 +1,160 @@
- <!DOCTYPE html><html lang="bn">
+<!DOCTYPE html><html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>অন্বেষণ | ইবুক সংগ্রহ</title>
-  <meta name="description" content="অন্বেষণ - ফ্রি ও প্রিমিয়াম ইবুক সংগ্রহশালা। ইসলাম, ইতিহাস, আত্মউন্নয়নসহ নানা বিষয়ে বই সংগ্রহ করুন।">
+  <title>অন্বেষণ - বইঘর</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fdfaf6;
+      font-family: sans-serif;
       margin: 0;
+      background: #fefefe;
+      color: #222;
+    }
+    header {
+      background: #0a4275;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .search-box {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .search-box input {
+      padding: 10px;
+      width: 80%;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       padding: 20px;
     }
-    h1 {
+    .book {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 200px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
       text-align: center;
-      color: #1e293b;
     }
-    .category-bar {
+    .book img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .book h3 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+    .book p {
+      font-size: 14px;
+    }
+    .pagination {
       text-align: center;
       margin-bottom: 20px;
     }
-    .category-bar button {
-      margin: 5px;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 20px;
-      background-color: #f59e0b;
+    .pagination button {
+      background: #0a4275;
       color: white;
+      border: none;
+      padding: 8px 15px;
+      margin: 5px;
+      border-radius: 5px;
       cursor: pointer;
     }
-    .ebook-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    footer {
+      background-color: #0a4275;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
     }
-    .ebook-card {
-      background-color: white;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    .ebook-title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #0f172a;
-    }
-    .ebook-meta {
-      font-size: 14px;
-      color: #475569;
-    }
-    .ebook-buttons {
-      margin-top: 10px;
-    }
-    .ebook-buttons a {
-      margin-right: 10px;
+    footer a {
+      color: #0f0;
       text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-    .download-btn {
-      background-color: #10b981;
-      color: white;
-    }
-    .buy-btn {
-      background-color: #ef4444;
-      color: white;
+      margin: 0 10px;
     }
   </style>
 </head>
 <body>
-  <h1>📚 অন্বেষণ ইবুক সংগ্রহ</h1>
-  <div class="category-bar">
-    <button onclick="filterBooks('all')">সকল</button>
-    <button onclick="filterBooks('free')">ফ্রি</button>
-    <button onclick="filterBooks('paid')">পেইড</button>
-  </div>  <div class="ebook-grid" id="ebookContainer">
-    <!-- Book 1 -->
-    <div class="ebook-card" data-type="free">
-      <div class="ebook-title">ইসলামে আত্মশুদ্ধি</div>
-      <div class="ebook-meta">বিষয়: ইসলাম | লেখক: মাওলানা শামসুল হক</div>
-      <div class="ebook-buttons">
-        <a href="#" class="download-btn">ডাউনলোড</a>
-      </div>
-    </div><!-- Book 2 -->
-<div class="ebook-card" data-type="paid">
-  <div class="ebook-title">বাংলার ইতিহাস (১৯০৫-১৯৪৭)</div>
-  <div class="ebook-meta">বিষয়: ইতিহাস | লেখক: আবুল কালাম আজাদ</div>
-  <div class="ebook-buttons">
-    <a href="#" class="buy-btn">৳১৫০ টাকায় কিনুন</a>
-  </div>
-</div>
+  <header>
+    <h1>📚 অন্বেষণ বইঘর</h1>
+  </header>  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="বইয়ের নাম লিখুন...">
+  </div>  <div class="book-container" id="bookContainer">
+    <!-- Books will appear here -->
+  </div>  <div class="pagination" id="pagination"></div>  <footer>
+    যোগাযোগ:
+    <a href="https://wa.me/8801852977329">WhatsApp</a> |
+    <a href="mailto:oonneshon@gmail.com">Gmail</a> |
+    <a href="https://t.me/yourtelegramusername">Telegram</a>
+  </footer>  <script>
+    const books = [
+      { title: "ইসলামে জ্ঞানচর্চা", img: "images/book1.jpg" },
+      { title: "ইতিহাসের আয়না", img: "images/book2.jpg" },
+      { title: "আত্মউন্নয়নের পথ", img: "images/book3.jpg" },
+      { title: "নবীজীর জীবনচরিত", img: "images/book4.jpg" },
+      { title: "ফ্রিল্যান্সিং গাইড", img: "images/book5.jpg" },
+      { title: "ডিজিটাল দুনিয়া", img: "images/book6.jpg" },
+      { title: "ইতিহাসের বাঁকে ইসলাম", img: "images/book7.jpg" },
+      { title: "রুহানিয়াতের শিক্ষা", img: "images/book8.jpg" },
+      { title: "সময় ব্যবস্থাপনা", img: "images/book9.jpg" },
+      { title: "ইসলামী অর্থনীতি", img: "images/book10.jpg" }
+    ];
 
-<!-- Book 3 -->
-<div class="ebook-card" data-type="free">
-  <div class="ebook-title">ফ্রিল্যান্সিং গাইড ২০২৫</div>
-  <div class="ebook-meta">বিষয়: ক্যারিয়ার | লেখক: আরিফুল ইসলাম</div>
-  <div class="ebook-buttons">
-    <a href="#" class="download-btn">ডাউনলোড</a>
-  </div>
-</div>
+    const booksPerPage = 4;
+    let currentPage = 1;
 
-<!-- Book 4 -->
-<div class="ebook-card" data-type="paid">
-  <div class="ebook-title">আত্মউন্নয়নের ৭ ধাপ</div>
-  <div class="ebook-meta">বিষয়: আত্মউন্নয়ন | লেখক: মাহবুব হোসেন</div>
-  <div class="ebook-buttons">
-    <a href="#" class="buy-btn">৳২০০ টাকায় কিনুন</a>
-  </div>
-</div>
-
-  </div>  <script>
-    function filterBooks(type) {
-      const books = document.querySelectorAll('.ebook-card');
-      books.forEach(book => {
-        if (type === 'all' || book.dataset.type === type) {
-          book.style.display = 'block';
-        } else {
-          book.style.display = 'none';
-        }
+    function displayBooks() {
+      const container = document.getElementById('bookContainer');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      container.innerHTML = '';
+      const filteredBooks = books.filter(b => b.title.toLowerCase().includes(search));
+      const start = (currentPage - 1) * booksPerPage;
+      const end = start + booksPerPage;
+      const pagedBooks = filteredBooks.slice(start, end);
+      
+      pagedBooks.forEach(book => {
+        container.innerHTML += `
+          <div class="book">
+            <img src="${book.img}" alt="${book.title}">
+            <h3>${book.title}</h3>
+          </div>
+        `;
       });
+
+      setupPagination(filteredBooks.length);
     }
+
+    function setupPagination(totalBooks) {
+      const totalPages = Math.ceil(totalBooks / booksPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `<button onclick="goToPage(${i})">${i}</button>`;
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      displayBooks();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', () => {
+      currentPage = 1;
+      displayBooks();
+    });
+
+    displayBooks();
   </script></body>
 </html>
