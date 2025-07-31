@@ -29,5 +29,9 @@
     <loc>https://onnoeshon.netlify.app/posts/selfdev1.html</loc>
     <lastmod>2025-07-15</lastmod>
     <priority>0.8</priority>
-  </url>
+  </url> 
+  <url>
+  <loc>https://yourdomain.com/posts/castro638.html</loc>
+  <lastmod>2025-07-19</lastmod>
+</url>
 </urlset>
