@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://onnoeshon.netlify.app/sitemap.xml
+User-agent: *
+Allow: /
+Sitemap: https://onneshon.netlify.app/sitemap.xml
